@@ -8,7 +8,8 @@ import com.driuft.androidkotlindebugging.R
 class PrintListActivity : AppCompatActivity() {
 
     private val wordList: TextView get() = findViewById(R.id.word_list)
-    private var words = listOf(
+
+    private val words = listOf(
         "this",
         "is",
         "your",
@@ -25,10 +26,13 @@ class PrintListActivity : AppCompatActivity() {
     }
 
     private fun combinedWords(): String {
+        // Option 1: Simple & safe loop
         var combined = ""
-        for (idx in 0 until words.size + 1) {
+        for (idx in 0 until words.size) {
             combined += "${words[idx]}\n"
         }
         return combined
+
+        // Option 2 (shorter): return words.joinToString("\n")
     }
 }

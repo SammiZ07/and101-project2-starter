@@ -4,22 +4,20 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.driuft.androidkotlindebugging.R
-import java.util.*
+import java.util.Calendar
+import java.util.Locale
 
 class CurrentDayActivity : AppCompatActivity() {
-
-    private lateinit var currentDayText: TextView
-    private val cal: Calendar = Calendar.getInstance()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_current_day)
 
-        currentDayText = findViewById(R.id.current_day_text)
-        currentDayText.text = getString(getDayOfMonth())
-    }
+        val tvCurrentDay: TextView = findViewById(R.id.current_day_text)
 
-    private fun getDayOfMonth(): Int {
-        return cal.get(Calendar.DAY_OF_MONTH)
+        val cal = Calendar.getInstance()
+        val dayName = cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.getDefault())
+            ?: "Unknown"
+
+        tvCurrentDay.text = dayName
     }
 }

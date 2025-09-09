@@ -7,6 +7,7 @@ import com.driuft.androidkotlindebugging.R
 class HelloWorldActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // This layout MUST exist with this exact name
         setContentView(R.layout.activity_hello_world)
     }
 }
